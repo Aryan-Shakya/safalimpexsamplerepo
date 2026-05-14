@@ -97,7 +97,7 @@
     <nav class="navbar scrolled">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <span class="logo-text">SAFAL <span class="logo-accent">IMPEX</span></span>
+                <img src="assets/logo.png" alt="Safal Impex" style="height: 50px; border-radius: 4px;">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -184,18 +184,21 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Company Name *</label>
-                                <input type="text" id="companyName" class="form-control" placeholder="Your Company Ltd." required>
+                                <input type="text" id="companyName" class="form-control" placeholder="Your Company Ltd."
+                                    required>
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Email Address *</label>
-                                <input type="email" id="emailAddress" class="form-control" placeholder="john@example.com" required>
+                                <input type="email" id="emailAddress" class="form-control"
+                                    placeholder="john@example.com" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Country *</label>
-                                <input type="text" id="country" class="form-control" placeholder="United States" required>
+                                <input type="text" id="country" class="form-control" placeholder="United States"
+                                    required>
                             </div>
                         </div>
 
@@ -216,8 +219,8 @@
 
                         <div class="form-group">
                             <label class="form-label">Your Message *</label>
-                            <textarea id="message" class="form-control" placeholder="Tell us about your sourcing requirements..."
-                                required></textarea>
+                            <textarea id="message" class="form-control"
+                                placeholder="Tell us about your sourcing requirements..." required></textarea>
                         </div>
 
                         <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry <i
@@ -276,31 +279,31 @@
 
     <script src="script.js"></script>
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             const fullName = document.getElementById('fullName').value;
             const companyName = document.getElementById('companyName').value;
             const emailAddress = document.getElementById('emailAddress').value;
             const country = document.getElementById('country').value;
-            
+
             const productSelect = document.getElementById('productInterest');
             const productText = productSelect.options[productSelect.selectedIndex].text;
-            
+
             const message = document.getElementById('message').value;
-            
+
             let text = `*New Trade Enquiry*%0A%0A`;
             text += `*Name:* ${fullName}%0A`;
             text += `*Company:* ${companyName}%0A`;
             text += `*Email:* ${emailAddress}%0A`;
             text += `*Country:* ${country}%0A`;
-            
+
             if (productSelect.value !== "") {
                 text += `*Product Interest:* ${productText}%0A`;
             }
-            
+
             text += `*Message:*%0A${message}`;
-            
+
             const whatsappUrl = `https://wa.me/919067151399?text=${encodeURIComponent(text.replace(/%0A/g, '\n'))}`;
             window.open(whatsappUrl, '_blank');
         });
