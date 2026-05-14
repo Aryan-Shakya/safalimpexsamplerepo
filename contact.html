@@ -176,32 +176,32 @@
                 <!-- Contact Form -->
                 <div class="contact-form fade-in-up" style="transition-delay: 0.2s;">
                     <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--color-dark);">Send us a Message</h3>
-                    <form action="#" method="POST">
+                    <form id="contactForm" action="#" method="POST">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Full Name *</label>
-                                <input type="text" class="form-control" placeholder="John Doe" required>
+                                <input type="text" id="fullName" class="form-control" placeholder="John Doe" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Company Name *</label>
-                                <input type="text" class="form-control" placeholder="Your Company Ltd." required>
+                                <input type="text" id="companyName" class="form-control" placeholder="Your Company Ltd." required>
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Email Address *</label>
-                                <input type="email" class="form-control" placeholder="john@example.com" required>
+                                <input type="email" id="emailAddress" class="form-control" placeholder="john@example.com" required>
                             </div>
                             <div class="form-group">
                                 <label class="form-label">Country *</label>
-                                <input type="text" class="form-control" placeholder="United States" required>
+                                <input type="text" id="country" class="form-control" placeholder="United States" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label class="form-label">Product Interest</label>
-                            <select class="form-control" style="cursor: pointer;">
+                            <select id="productInterest" class="form-control" style="cursor: pointer;">
                                 <option value="" disabled selected>Select a category</option>
                                 <option value="barmer">Barmer Craft Products</option>
                                 <option value="blue-pottery">Blue Pottery Products</option>
@@ -216,7 +216,7 @@
 
                         <div class="form-group">
                             <label class="form-label">Your Message *</label>
-                            <textarea class="form-control" placeholder="Tell us about your sourcing requirements..."
+                            <textarea id="message" class="form-control" placeholder="Tell us about your sourcing requirements..."
                                 required></textarea>
                         </div>
 
@@ -275,6 +275,36 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const fullName = document.getElementById('fullName').value;
+            const companyName = document.getElementById('companyName').value;
+            const emailAddress = document.getElementById('emailAddress').value;
+            const country = document.getElementById('country').value;
+            
+            const productSelect = document.getElementById('productInterest');
+            const productText = productSelect.options[productSelect.selectedIndex].text;
+            
+            const message = document.getElementById('message').value;
+            
+            let text = `*New Trade Enquiry*%0A%0A`;
+            text += `*Name:* ${fullName}%0A`;
+            text += `*Company:* ${companyName}%0A`;
+            text += `*Email:* ${emailAddress}%0A`;
+            text += `*Country:* ${country}%0A`;
+            
+            if (productSelect.value !== "") {
+                text += `*Product Interest:* ${productText}%0A`;
+            }
+            
+            text += `*Message:*%0A${message}`;
+            
+            const whatsappUrl = `https://wa.me/919067151399?text=${encodeURIComponent(text.replace(/%0A/g, '\n'))}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
 </body>
 
 </html>
