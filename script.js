@@ -46,4 +46,30 @@ document.addEventListener('DOMContentLoaded', () => {
     fadeElements.forEach(el => {
         observer.observe(el);
     });
+
+    // --- FAQ Accordion ---
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const questionBtn = item.querySelector('.faq-question');
+        const answer = item.querySelector('.faq-answer');
+        
+        questionBtn.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close all other FAQs
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+                if(otherItem.querySelector('.faq-answer')) {
+                    otherItem.querySelector('.faq-answer').style.maxHeight = null;
+                }
+            });
+            
+            if (!isActive) {
+                // Open this FAQ
+                item.classList.add('active');
+                answer.style.maxHeight = answer.scrollHeight + 40 + "px"; // 40px for padding
+            }
+        });
+    });
 });
