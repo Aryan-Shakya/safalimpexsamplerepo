@@ -320,7 +320,7 @@ img {
     min-height: 600px;
     display: flex;
     align-items: center;
-    background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80'); /* Cargo/Shipping background */
+    background-image: url('assets/Wooden Handicrafts.jpg'); /* Premium Handicraft background */
     background-size: cover;
     background-position: center;
 }
