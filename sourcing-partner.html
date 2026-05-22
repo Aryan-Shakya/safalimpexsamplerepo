@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Safal Impex</title>
+    <title>Sourcing Partner - Safal Impex</title>
     <!-- Favicon -->
     <link rel="icon" href="public/logo (1).jpeg" type="image/jpeg">
     <!-- Google Fonts -->
@@ -58,37 +58,6 @@
             resize: vertical;
             min-height: 150px;
         }
-
-        .contact-info-card {
-            background: var(--color-dark);
-            color: white;
-            padding: 3rem;
-            border-radius: 4px;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .info-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        .info-icon {
-            font-size: 1.5rem;
-            color: var(--color-secondary);
-        }
-
-        .info-content h4 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
-        }
-
-        .info-content p {
-            color: var(--color-light-gray);
-        }
     </style>
 </head>
 
@@ -103,8 +72,8 @@
                 <a href="index.html">Home</a>
                 <a href="categories.html">Products</a>
                 <a href="about.html">About Us</a>
-                <a href="sourcing-partner.html">Sourcing Partner</a>
-                <a href="contact.html" class="active">Contact</a>
+                <a href="sourcing-partner.html" class="active">Sourcing Partner</a>
+                <a href="contact.html">Contact</a>
             </div>
             <div class="mobile-menu-btn"><i class="fas fa-bars"></i></div>
         </div>
@@ -117,76 +86,70 @@
             <a href="index.html">Home</a>
             <a href="categories.html">Products</a>
             <a href="about.html">About Us</a>
-            <a href="sourcing-partner.html">Sourcing Partner</a>
-            <a href="contact.html" class="active">Contact</a>
+            <a href="sourcing-partner.html" class="active">Sourcing Partner</a>
+            <a href="contact.html">Contact</a>
         </div>
     </div>
 
     <!-- Page Header -->
     <div class="page-header text-white text-center" style="padding: 10rem 0 4rem; background: var(--primary-gradient);">
         <div class="container fade-in-up">
-            <h1 class="page-title" style="font-size: 3.5rem;">Trade <span class="gold-gradient-text">Enquiry</span></h1>
-            <p class="text-light-gray" style="max-width: 600px; margin: 1rem auto; font-size: 1.1rem;">Get in touch with
-                us to discuss your global sourcing requirements.</p>
+            <h1 class="page-title" style="font-size: 3.5rem;">Sourcing <span class="gold-gradient-text">Partner</span></h1>
+            <p class="text-light-gray" style="max-width: 600px; margin: 1rem auto; font-size: 1.1rem;">Join forces with Safal Impex as a strategic sourcing agent to connect our premium products with global markets.</p>
         </div>
     </div>
 
     <!-- Contact Section -->
     <section class="section bg-light">
         <div class="container">
+            <div class="text-center" style="max-width: 800px; margin: 0 auto 3rem;">
+                <p style="font-size: 1.1rem; color: var(--color-dark);">We are constantly expanding our global reach. If you have a strong network in international trade, we invite you to partner with us as a Sourcing Agent. Let's work together to deliver excellence globally.</p>
+            </div>
+            
             <div style="max-width: 800px; margin: 0 auto;">
                 <!-- Contact Form -->
                 <div class="contact-form fade-in-up">
-                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--color-dark); text-align: center;">Send us a Message</h3>
-                    <form id="contactForm" action="#" method="POST">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--color-dark); text-align: center;">Become a Sourcing Partner</h3>
+                    <form id="sourcingForm" action="#" method="POST">
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Full Name *</label>
                                 <input type="text" id="fullName" class="form-control" placeholder="John Doe" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Company Name *</label>
-                                <input type="text" id="companyName" class="form-control" placeholder="Your Company Ltd."
-                                    required>
+                                <label class="form-label">Company/Agency Name</label>
+                                <input type="text" id="companyName" class="form-control" placeholder="Your Agency">
                             </div>
                         </div>
 
                         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Email Address *</label>
-                                <input type="email" id="emailAddress" class="form-control"
-                                    placeholder="john@example.com" required>
+                                <input type="email" id="emailAddress" class="form-control" placeholder="john@example.com" required>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">Country *</label>
-                                <input type="text" id="country" class="form-control" placeholder="United States"
-                                    required>
+                                <label class="form-label">Phone Number (with country code) *</label>
+                                <input type="text" id="phone" class="form-control" placeholder="+1 234 567 8900" required>
+                            </div>
+                        </div>
+                        
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                            <div class="form-group">
+                                <label class="form-label">Country/Region of Operation *</label>
+                                <input type="text" id="country" class="form-control" placeholder="United States, Europe, etc." required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Years of Experience</label>
+                                <input type="text" id="experience" class="form-control" placeholder="e.g. 5 Years">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="form-label">Product Interest</label>
-                            <select id="productInterest" class="form-control" style="cursor: pointer;">
-                                <option value="" disabled selected>Select a category</option>
-                                <option value="barmer">Barmer Craft Products</option>
-                                <option value="blue-pottery">Blue Pottery Products</option>
-                                <option value="chikankari">Chikankari Works</option>
-                                <option value="epoxy">Epoxy Handicrafts</option>
-                                <option value="epoxy-wood">Epoxy Resin Wooden Articles</option>
-                                <option value="hand-block">Hand Block Fabrics</option>
-                                <option value="wooden">Traditional Wooden Handicrafts</option>
-                                <option value="other">Other / General Sourcing</option>
-                            </select>
+                            <label class="form-label">Tell us about your sourcing experience and network *</label>
+                            <textarea id="message" class="form-control" placeholder="Describe your background and the markets you cover..." required></textarea>
                         </div>
 
-                        <div class="form-group">
-                            <label class="form-label">Your Message *</label>
-                            <textarea id="message" class="form-control"
-                                placeholder="Tell us about your sourcing requirements..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Enquiry <i
-                                class="fas fa-paper-plane" style="margin-left: 8px;"></i></button>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Application via WhatsApp <i class="fab fa-whatsapp" style="margin-left: 8px;"></i></button>
                     </form>
                 </div>
             </div>
@@ -242,30 +205,25 @@
 
     <script src="script.js"></script>
     <script>
-        document.getElementById('contactForm').addEventListener('submit', function (e) {
+        document.getElementById('sourcingForm').addEventListener('submit', function (e) {
             e.preventDefault();
 
             const fullName = document.getElementById('fullName').value;
             const companyName = document.getElementById('companyName').value;
             const emailAddress = document.getElementById('emailAddress').value;
+            const phone = document.getElementById('phone').value;
             const country = document.getElementById('country').value;
-
-            const productSelect = document.getElementById('productInterest');
-            const productText = productSelect.options[productSelect.selectedIndex].text;
-
+            const experience = document.getElementById('experience').value;
             const message = document.getElementById('message').value;
 
-            let text = `*New Trade Enquiry*%0A%0A`;
+            let text = `*New Sourcing Partner Application*%0A%0A`;
             text += `*Name:* ${fullName}%0A`;
-            text += `*Company:* ${companyName}%0A`;
+            if (companyName) text += `*Agency/Company:* ${companyName}%0A`;
             text += `*Email:* ${emailAddress}%0A`;
-            text += `*Country:* ${country}%0A`;
-
-            if (productSelect.value !== "") {
-                text += `*Product Interest:* ${productText}%0A`;
-            }
-
-            text += `*Message:*%0A${message}`;
+            text += `*Phone:* ${phone}%0A`;
+            text += `*Region:* ${country}%0A`;
+            if (experience) text += `*Experience:* ${experience}%0A`;
+            text += `%0A*Message:*%0A${message}`;
 
             const whatsappUrl = `https://wa.me/919067151399?text=${encodeURIComponent(text.replace(/%0A/g, '\n'))}`;
             window.open(whatsappUrl, '_blank');
