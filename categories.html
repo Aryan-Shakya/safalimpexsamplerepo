@@ -24,11 +24,13 @@
     <nav class="navbar scrolled">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/Fevicon.jpeg" alt="Safal Impex" style="height: 50px; border-radius: 4px;" loading="lazy">
+                <img src="assets/Fevicon.jpeg" alt="Safal Impex" style="height: 50px; border-radius: 4px;"
+                    loading="lazy">
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
-                <a href="categories.html" class="active">Products</a>
+                <a href="https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top"
+                    class="active">Handicrafts</a>
                 <a href="about.html">About Us</a>
                 <a href="sourcing-partner.html">Sourcing Partner</a>
                 <a href="contact.html">Contact</a>
@@ -42,7 +44,8 @@
         <div class="close-btn"><i class="fas fa-times"></i></div>
         <div class="mobile-nav-links">
             <a href="index.html">Home</a>
-            <a href="categories.html" class="active">Products</a>
+            <a href="https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top"
+                class="active">Handicrafts</a>
             <a href="about.html">About Us</a>
             <a href="sourcing-partner.html">Sourcing Partner</a>
             <a href="contact.html">Contact</a>
@@ -59,89 +62,336 @@
         </div>
     </div>
 
-    <!-- Categories Grid -->
-    <section class="section bg-light">
-        <div class="container">
-            <div class="category-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-                <!-- Category 1: Handicrafts -->
-                <a href="handicrafts.html" class="category-card fade-in-up" style="transition-delay: 0.1s;">
-                    <div class="card-img-wrapper">
-                        <img src="assets/Barmer Craft-1.jpg" alt="Handicrafts" class="card-img" loading="lazy">
-                        <div class="card-overlay">
-                            <span class="view-btn">View Collection</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Heritage Handicrafts</h3>
-                        <p class="text-light-gray" style="font-size: 0.85rem; margin-top: 0.5rem;">Barmer Crafts, Epoxy Resin, Blue Pottery, Chikankari</p>
-                    </div>
-                </a>
+    <!-- Categories Showcase — Card Drop + Sliding Strip -->
+    <section class="cat-showcase" id="catShowcase">
 
-                <!-- Category 2: Essential Oils -->
-                <a href="essential-oils.html" class="category-card fade-in-up" style="transition-delay: 0.2s;">
-                    <div class="card-img-wrapper">
-                        <img src="assets/essential-oils.png" alt="Botanical Essential Oils" class="card-img" loading="lazy">
-                        <div class="card-overlay">
-                            <span class="view-btn">View Collection</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Botanical Essential Oils</h3>
-                        <p class="text-light-gray" style="font-size: 0.85rem; margin-top: 0.5rem;">Premium natural extracts</p>
-                    </div>
-                </a>
+        <!-- Click-anywhere overlay (whole section links to catalogue) -->
+        <div class="cat-click-overlay"
+             onclick="window.location.href='https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top'">
+        </div>
 
-                <!-- Category 3: 925 Silver Jewelry -->
-                <a href="silver-jewelry.html" class="category-card fade-in-up" style="transition-delay: 0.3s;">
-                    <div class="card-img-wrapper">
-                        <img src="assets/925-silver-jewel.png" alt="Fine Silver Jewelry" class="card-img" loading="lazy">
-                        <div class="card-overlay">
-                            <span class="view-btn">View Collection</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Fine Silver Jewelry</h3>
-                        <p class="text-light-gray" style="font-size: 0.85rem; margin-top: 0.5rem;">Exquisite artisan pieces</p>
-                    </div>
-                </a>
-
-                <!-- Category 4: Spices -->
-                <a href="spices.html" class="category-card fade-in-up" style="transition-delay: 0.4s;">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=800&auto=format&fit=crop" alt="Spices" class="card-img" loading="lazy">
-                        <div class="card-overlay">
-                            <span class="view-btn">View Collection</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Premium Aromatic Spices</h3>
-                        <p class="text-light-gray" style="font-size: 0.85rem; margin-top: 0.5rem;">Authentic Indian flavors</p>
-                    </div>
-                </a>
-
-                <!-- Category 5: Home Decor -->
-                <a href="home-decor.html" class="category-card fade-in-up" style="transition-delay: 0.5s;">
-                    <div class="card-img-wrapper">
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=800&auto=format&fit=crop" alt="Home Decor Items" class="card-img" loading="lazy">
-                        <div class="card-overlay">
-                            <span class="view-btn">View Collection</span>
-                        </div>
-                    </div>
-                    <div class="card-content">
-                        <h3 class="card-title">Curated Home Decor</h3>
-                        <p class="text-light-gray" style="font-size: 0.85rem; margin-top: 0.5rem;">Elegant additions to any space</p>
-                    </div>
-                </a>
+        <!-- SLIDING STRIP (rendered behind card) -->
+        <div class="cat-strip-wrapper" id="catStripWrapper">
+            <div class="cat-strip-track" id="catStripTrack">
+                <!-- Images injected by JS below -->
             </div>
         </div>
+
+        <!-- LEFT FADE MASK — strip "enters" card from left -->
+        <div class="cat-mask cat-mask-left"></div>
+        <!-- RIGHT FADE MASK — strip "exits" card to right -->
+        <div class="cat-mask cat-mask-right"></div>
+
+        <!-- THE CARD — drops from above on scroll trigger -->
+        <a class="cat-hero-card" id="catHeroCard"
+           href="https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top">
+            <div class="cat-card-inner">
+                <div class="cat-card-img-wrap">
+                    <img src="assets/Barmer Craft-1.jpg" alt="Heritage Handicrafts" loading="eager">
+                    <div class="cat-card-overlay">
+                        <span class="cat-view-label">View Collection</span>
+                    </div>
+                </div>
+                <div class="cat-card-body">
+                    <h3 class="cat-card-title">Heritage Handicrafts</h3>
+                    <div class="cat-card-accent"></div>
+                    <p class="cat-card-sub">Barmer Crafts &middot; Epoxy Resin &middot; Blue Pottery &middot; Chikankari</p>
+                </div>
+            </div>
+        </a>
+
     </section>
+
+    <style>
+        /* ── Showcase wrapper ── */
+        .cat-showcase {
+            position: relative;
+            height: 90vh;
+            min-height: 580px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #0a0a0a;
+            cursor: pointer;
+        }
+
+        /* Invisible full-section click overlay (below card z-index) */
+        .cat-click-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+        }
+
+        /* ── Sliding strip ── */
+        .cat-strip-wrapper {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 230px;
+            transform: translateY(-50%);
+            z-index: 3;
+            opacity: 0;
+            transition: opacity 0.7s ease 0.75s;
+        }
+
+        .cat-strip-wrapper.cat-visible {
+            opacity: 1;
+        }
+
+        .cat-strip-track {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            animation: catSlideLeft 28s linear infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes catSlideLeft {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .cat-strip-item {
+            flex-shrink: 0;
+            width: 190px;
+            height: 210px;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+        }
+
+        .cat-strip-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        /* ── Edge fade masks — make strip vanish at card edges ── */
+        .cat-mask {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            height: 270px;
+            z-index: 4;
+            pointer-events: none;
+        }
+
+        .cat-mask-left {
+            left: 0;
+            /* width = half viewport minus half card width (170px) */
+            width: calc(50% - 170px);
+            background: linear-gradient(to right, #0a0a0a 55%, transparent 100%);
+        }
+
+        .cat-mask-right {
+            right: 0;
+            width: calc(50% - 170px);
+            background: linear-gradient(to left, #0a0a0a 55%, transparent 100%);
+        }
+
+        /* ── Hero card ── */
+        .cat-hero-card {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            /* Starts way above, drops to center */
+            transform: translate(-50%, -220%);
+            z-index: 10;
+            width: 320px;
+            text-decoration: none;
+            color: inherit;
+            border-radius: 20px;
+            transition: transform 0.95s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .cat-hero-card.cat-dropped {
+            transform: translate(-50%, -50%);
+        }
+
+        .cat-hero-card:hover .cat-card-inner {
+            transform: translateY(-8px);
+        }
+
+        .cat-card-inner {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow:
+                0 32px 80px rgba(0,0,0,0.65),
+                0 4px 16px rgba(0,0,0,0.35);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .cat-card-img-wrap {
+            position: relative;
+            aspect-ratio: 4/5;
+            overflow: hidden;
+        }
+
+        .cat-card-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+        }
+
+        .cat-hero-card:hover .cat-card-img-wrap img {
+            transform: scale(1.06);
+        }
+
+        /* "View Collection" hover overlay */
+        .cat-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.88) 100%);
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 1.6rem;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .cat-hero-card:hover .cat-card-overlay {
+            opacity: 1;
+        }
+
+        .cat-view-label {
+            color: #C5A059;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 1px solid #C5A059;
+            padding-bottom: 4px;
+            transform: translateY(12px);
+            transition: transform 0.4s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .cat-hero-card:hover .cat-view-label {
+            transform: translateY(0);
+        }
+
+        .cat-card-body {
+            padding: 1.4rem 1.6rem 1.6rem;
+            text-align: center;
+            background: #fff;
+        }
+
+        .cat-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #121212;
+            font-weight: 600;
+            margin-bottom: 0;
+        }
+
+        .cat-card-accent {
+            width: 40px;
+            height: 2px;
+            background: linear-gradient(135deg, #DFBE74, #C5A059, #9E7D3F);
+            margin: 0.6rem auto 0.7rem;
+            border-radius: 2px;
+        }
+
+        .cat-card-sub {
+            font-size: 0.78rem;
+            color: #a0a0a0;
+            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cat-hero-card { width: 260px; }
+            .cat-strip-item { width: 150px; height: 170px; }
+            .cat-mask-left, .cat-mask-right { width: calc(50% - 135px); }
+            .cat-showcase { height: 80vh; }
+        }
+    </style>
+
+    <script>
+        /* ── Build infinite strip with mixed image sequence ── */
+        (function () {
+            /* Mixed so no two same-category images are adjacent:
+               wood1 → pot1 → cotton1 → wood2 → pot2 → cotton2
+               Then interspersed with existing craft images */
+            const sliderImages = [
+                'assets/slider wood 1.jpg',
+                'assets/slider pot1.jpg',
+                'assets/slider cotton bag1.jpg',
+                'assets/Barmer Craft-2.jpg',
+                'assets/slider wood 2.jpg',
+                'assets/Blue Pottery-1.jpg',
+                'assets/slider cotton bag 2.jpg',
+                'assets/Chikankari-2.png',
+                'assets/slider pot2 .jpg',
+                'assets/Hand Block Fabrics.jpg',
+                'assets/slider wood 1.jpg',
+                'assets/Epoxy Resin.png',
+                'assets/slider cotton bag1.jpg',
+                'assets/Blue Pottery-2.jpg',
+                'assets/slider pot1.jpg',
+                'assets/Barmer Craft-3.jpg',
+            ];
+
+            const track = document.getElementById('catStripTrack');
+            if (!track) return;
+
+            /* Duplicate once for seamless infinite loop */
+            [...sliderImages, ...sliderImages].forEach(function (src) {
+                var item = document.createElement('div');
+                item.className = 'cat-strip-item';
+                var img = document.createElement('img');
+                img.src = src;
+                img.alt = '';
+                img.loading = 'lazy';
+                item.appendChild(img);
+                track.appendChild(item);
+            });
+
+            /* ── Scroll-triggered drop animation ── */
+            var showcase  = document.getElementById('catShowcase');
+            var heroCard  = document.getElementById('catHeroCard');
+            var stripWrap = document.getElementById('catStripWrapper');
+            var triggered = false;
+
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (entry) {
+                    if (entry.isIntersecting && !triggered) {
+                        triggered = true;
+
+                        /* Step 1: drop the card */
+                        setTimeout(function () {
+                            heroCard.classList.add('cat-dropped');
+                        }, 150);
+
+                        /* Step 2: fade in strip after card lands */
+                        setTimeout(function () {
+                            stripWrap.classList.add('cat-visible');
+                        }, 550);
+                    }
+                });
+            }, { threshold: 0.25 });
+
+            obs.observe(showcase);
+        }());
+    </script>
 
     <!-- Footer -->
     <footer class="footer bg-black text-white">
         <div class="container footer-grid">
             <div class="footer-brand">
                 <a href="index.html" class="logo">
-                    <img src="assets/Fevicon.jpeg" alt="Safal Impex" style="height: 50px; border-radius: 4px;" loading="lazy">
+                    <img src="assets/Fevicon.jpeg" alt="Safal Impex" style="height: 50px; border-radius: 4px;"
+                        loading="lazy">
                 </a>
                 <p class="footer-desc">Delivering Trust Across Borders. Your premium partner for global export and
                     sourcing from India.</p>
