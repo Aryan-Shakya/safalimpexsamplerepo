@@ -24,8 +24,8 @@
     <nav class="navbar scrolled">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/Fevicon.jpeg" alt="Safal Impex" style="height: 50px; border-radius: 4px;"
-                    loading="lazy">
+                <img src="assets/Fevicon.jpeg" alt="Safal Impex" loading="lazy">
+                <span class="brand-name">Safal Impex</span>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -67,7 +67,7 @@
 
         <!-- Click-anywhere overlay (whole section links to catalogue) -->
         <div class="cat-click-overlay"
-             onclick="window.location.href='https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top'">
+            onclick="window.location.href='https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top'">
         </div>
 
         <!-- SLIDING STRIP (rendered behind card) -->
@@ -84,7 +84,7 @@
 
         <!-- THE CARD — drops from above on scroll trigger -->
         <a class="cat-hero-card" id="catHeroCard"
-           href="https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top">
+            href="https://links.dfyo.com/preview/WTMNkyhDB4AVSlNLjEc6?notrack=true#top">
             <div class="cat-card-inner">
                 <div class="cat-card-img-wrap">
                     <img src="assets/Barmer Craft-1.jpg" alt="Heritage Handicrafts" loading="eager">
@@ -95,7 +95,8 @@
                 <div class="cat-card-body">
                     <h3 class="cat-card-title">Heritage Handicrafts</h3>
                     <div class="cat-card-accent"></div>
-                    <p class="cat-card-sub">Barmer Crafts &middot; Epoxy Resin &middot; Blue Pottery &middot; Chikankari</p>
+                    <p class="cat-card-sub">Barmer Crafts &middot; Epoxy Resin &middot; Blue Pottery &middot; Chikankari
+                    </p>
                 </div>
             </div>
         </a>
@@ -112,8 +113,21 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            background: #ffffff;
+            background-color: #ffffff;
+            background-image: url('assets/Indian_export_handicrafts_BG_2.jpeg');
+            background-size: cover;
+            background-position: center;
             cursor: pointer;
+        }
+
+        /* Faint white wash over the BG image so the card/strip remain the focus */
+        .cat-showcase::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 255, 255, 0.82);
+            z-index: 1;
+            pointer-events: none;
         }
 
         /* Invisible full-section click overlay (below card z-index) */
@@ -149,8 +163,13 @@
         }
 
         @keyframes catSlideLeft {
-            0%   { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         .cat-strip-item {
@@ -159,7 +178,7 @@
             height: 210px;
             border-radius: 14px;
             overflow: hidden;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.5);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
         }
 
         .cat-strip-item img {
@@ -222,8 +241,8 @@
             border-radius: 20px;
             overflow: hidden;
             box-shadow:
-                0 32px 80px rgba(0,0,0,0.65),
-                0 4px 16px rgba(0,0,0,0.35);
+                0 32px 80px rgba(0, 0, 0, 0.65),
+                0 4px 16px rgba(0, 0, 0, 0.35);
             transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -249,7 +268,7 @@
         .cat-card-overlay {
             position: absolute;
             inset: 0;
-            background: linear-gradient(180deg, transparent 40%, rgba(10,10,10,0.88) 100%);
+            background: linear-gradient(180deg, transparent 40%, rgba(10, 10, 10, 0.88) 100%);
             display: flex;
             align-items: flex-end;
             justify-content: center;
@@ -310,10 +329,23 @@
 
         /* Responsive */
         @media (max-width: 768px) {
-            .cat-hero-card { width: 260px; }
-            .cat-strip-item { width: 150px; height: 170px; }
-            .cat-mask-left, .cat-mask-right { width: calc(50% - 135px); }
-            .cat-showcase { height: 80vh; }
+            .cat-hero-card {
+                width: 260px;
+            }
+
+            .cat-strip-item {
+                width: 150px;
+                height: 170px;
+            }
+
+            .cat-mask-left,
+            .cat-mask-right {
+                width: calc(50% - 135px);
+            }
+
+            .cat-showcase {
+                height: 80vh;
+            }
         }
     </style>
 
@@ -358,8 +390,8 @@
             });
 
             /* ── Scroll-triggered drop animation ── */
-            var showcase  = document.getElementById('catShowcase');
-            var heroCard  = document.getElementById('catHeroCard');
+            var showcase = document.getElementById('catShowcase');
+            var heroCard = document.getElementById('catHeroCard');
             var stripWrap = document.getElementById('catStripWrapper');
             var triggered = false;
 
