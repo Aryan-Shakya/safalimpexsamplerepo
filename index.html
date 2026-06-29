@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Safal Impex - Delivering Trust Across Borders</title>
     <meta name="description"
         content="Safal Impex is a premium global export brand delivering trust across borders. We specialize in global sourcing, quality assurance, and reliable supply chain.">
@@ -81,6 +81,21 @@
             background: linear-gradient(135deg, #DFBE74 0%, #C5A059 50%, #9E7D3F 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+        }
+
+        /* iOS: prevent fixed background-attachment flicker on hero */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                background-attachment: scroll;
+            }
+        }
+
+        /* Mobile hero overrides */
+        @media (max-width: 768px) {
+            .hero {
+                background-attachment: scroll;
+                background-position: center top;
+            }
         }
     </style>
 </head>
@@ -402,6 +417,13 @@
             font-family: 'Inter', sans-serif;
         }
 
+        @media (max-width: 992px) {
+            .hp-showcase {
+                height: 85vh;
+                background-attachment: scroll;
+            }
+        }
+
         @media (max-width: 768px) {
             .hp-hero-card {
                 width: 260px;
@@ -419,9 +441,43 @@
 
             .hp-showcase {
                 height: 80vh;
+                background-attachment: scroll;
+                background-position: center top;
+            }
+
+            /* Touch: always show the overlay label */
+            @media (hover: none) {
+                .hp-card-overlay {
+                    opacity: 0.8;
+                }
+                .hp-view-label {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hp-hero-card {
+                width: 230px;
+            }
+
+            .hp-strip-item {
+                width: 130px;
+                height: 150px;
+            }
+
+            .hp-mask-left,
+            .hp-mask-right {
+                width: calc(50% - 120px);
+            }
+
+            .hp-showcase {
+                height: 75vh;
+                min-height: 480px;
             }
         }
     </style>
+
 
     <script>
         (function () {
