@@ -18,10 +18,28 @@ document.addEventListener('DOMContentLoaded', () => {
     if (mobileMenuBtn && closeBtn && mobileNav) {
         mobileMenuBtn.addEventListener('click', () => {
             mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent body scroll when nav open
         });
 
-        closeBtn.addEventListener('click', () => {
+        const closeMobileNav = () => {
             mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        };
+
+        closeBtn.addEventListener('click', closeMobileNav);
+
+        // Close when a nav link is tapped (important for mobile)
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMobileNav);
+        });
+
+        // Close when tapping backdrop (outside nav panel)
+        document.addEventListener('click', (e) => {
+            if (mobileNav.classList.contains('active') &&
+                !mobileNav.contains(e.target) &&
+                !mobileMenuBtn.contains(e.target)) {
+                closeMobileNav();
+            }
         });
     }
 
