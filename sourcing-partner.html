@@ -60,22 +60,14 @@
         }
     </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QVZ593FN7L"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-QVZ593FN7L');
-</script>
 <body>
     <!-- Navbar -->
     <nav class="navbar scrolled">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/Fevicon.jpeg" alt="Safal Impex" style="height: 50px; border-radius: 4px;"
-                    loading="lazy">
+                <img src="assets/Fevicon.jpeg" alt="Safal Impex" loading="lazy">
+                <span class="brand-name">Safal Impex</span>
             </a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -101,7 +93,7 @@
     </div>
 
     <!-- Page Header -->
-    <div class="page-header text-white text-center" style="padding: 10rem 0 4rem; background: var(--primary-gradient);">
+    <div class="page-header text-white text-center" style="background: var(--primary-gradient);">
         <div class="container fade-in-up">
             <h1 class="page-title" style="font-size: 3.5rem;">Sourcing <span class="gold-gradient-text">Partner</span>
             </h1>
@@ -125,7 +117,7 @@
                     <h3 style="font-size: 1.8rem; margin-bottom: 2rem; color: var(--color-dark); text-align: center;">
                         Become a Sourcing Partner</h3>
                     <form id="sourcingForm" action="#" method="POST">
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Full Name *</label>
                                 <input type="text" id="fullName" class="form-control" placeholder="John Doe" required>
@@ -136,7 +128,7 @@
                             </div>
                         </div>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Email Address *</label>
                                 <input type="email" id="emailAddress" class="form-control"
@@ -149,7 +141,7 @@
                             </div>
                         </div>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                        <div class="form-row-2col" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div class="form-group">
                                 <label class="form-label">Country/Region of Operation *</label>
                                 <input type="text" id="country" class="form-control"
