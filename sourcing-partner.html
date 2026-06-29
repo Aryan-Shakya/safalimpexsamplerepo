@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Sourcing Partner - Safal Impex</title>
     <!-- Favicon -->
     <link rel="icon" href="public/logo (1).jpeg" type="image/jpeg">
@@ -46,6 +46,7 @@
             font-size: 1rem;
             transition: border-color var(--transition-fast);
             background: #FAFAFA;
+            -webkit-appearance: none; /* Remove iOS default styling */
         }
 
         .form-control:focus {
@@ -57,6 +58,47 @@
         textarea.form-control {
             resize: vertical;
             min-height: 150px;
+        }
+
+        /* ── Sourcing page responsive ── */
+        @media (max-width: 768px) {
+            .contact-form {
+                padding: 1.8rem !important;
+            }
+
+            /* CRITICAL: Prevents iOS from zooming into inputs on focus */
+            .form-control {
+                font-size: 16px;
+            }
+
+            .form-row-2col {
+                display: grid !important;
+                grid-template-columns: 1fr !important;
+                gap: 0 !important;
+            }
+
+            .contact-form h3 {
+                font-size: 1.4rem !important;
+            }
+
+            button[type="submit"] {
+                font-size: 0.9rem;
+                padding: 1rem;
+                line-height: 1.4;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 1.2rem !important;
+            }
+        }
+
+        /* iOS safe area for bottom of page */
+        @supports (padding-bottom: env(safe-area-inset-bottom)) {
+            .footer {
+                padding-bottom: env(safe-area-inset-bottom);
+            }
         }
     </style>
 </head>
