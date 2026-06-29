@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>About Us - Safal Impex</title>
     <!-- Favicon -->
     <link rel="icon" href="public/logo (1).jpeg" type="image/jpeg">
@@ -17,6 +17,78 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/jpeg" href="assets/Fevicon.jpeg">
+    <style>
+        /* About page specific responsive styles */
+        .about-content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-content-grid img {
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .about-stats-row {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .about-stat h4 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .about-stat p {
+            color: var(--color-gray);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .about-content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-content-grid img {
+                max-height: 280px;
+                object-position: top;
+            }
+
+            .about-stats-row {
+                gap: 1.5rem;
+            }
+
+            .about-stat h4 {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-stats-row {
+                gap: 1rem;
+            }
+
+            .about-stat h4 {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* iOS safe area support */
+        @supports (-webkit-touch-callout: none) {
+            .page-header {
+                padding-top: max(7rem, calc(7rem + env(safe-area-inset-top))) !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -63,11 +135,10 @@
     <!-- About Content -->
     <section class="section bg-light">
         <div class="container">
-            <div class="about-content-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;">
+            <div class="about-content-grid">
                 <div class="fade-in-up">
                     <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                        alt="Global Sourcing Meeting"
-                        style="border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);" loading="lazy">
+                        alt="Global Sourcing Meeting" loading="lazy">
                 </div>
                 <div class="fade-in-up" style="transition-delay: 0.2s;">
                     <h2 style="font-size: 2.5rem; margin-bottom: 1.5rem;">Delivering Trust <span
@@ -81,16 +152,14 @@
                         high-grade Epoxy resin articles—to international buyers. We prioritize transparency, stringent
                         quality assurance, and seamless logistics in every transaction.</p>
 
-                    <div style="display: flex; gap: 2rem; margin-bottom: 2rem;">
-                        <div>
-                            <h4 class="gold-text" style="font-size: 2rem; margin-bottom: 0.5rem;">10+</h4>
-                            <p style="color: var(--color-gray); font-size: 0.9rem; text-transform: uppercase;">Product
-                                Categories</p>
+                    <div class="about-stats-row">
+                        <div class="about-stat">
+                            <h4 class="gold-text">10+</h4>
+                            <p>Product Categories</p>
                         </div>
-                        <div>
-                            <h4 class="gold-text" style="font-size: 2rem; margin-bottom: 0.5rem;">100%</h4>
-                            <p style="color: var(--color-gray); font-size: 0.9rem; text-transform: uppercase;">Quality
-                                Assurance</p>
+                        <div class="about-stat">
+                            <h4 class="gold-text">100%</h4>
+                            <p>Quality Assurance</p>
                         </div>
                     </div>
 
