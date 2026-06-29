@@ -34,6 +34,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* Remove tap flash on mobile */
 }
 
 html {
@@ -80,6 +81,9 @@ img {
     max-width: 1280px;
     margin: 0 auto;
     padding: 0 2rem;
+    /* Safe area insets for notched iPhones */
+    padding-left: max(2rem, env(safe-area-inset-left));
+    padding-right: max(2rem, env(safe-area-inset-right));
 }
 
 .section {
@@ -849,6 +853,7 @@ img {
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
     }
 
     .category-grid {
@@ -860,14 +865,19 @@ img {
         gap: 2.5rem;
     }
 
+    .why-us-image {
+        order: -1;
+    }
+
     .why-us-image img {
-        max-height: 400px;
+        max-height: 420px;
         width: 100%;
         object-fit: cover;
+        border-radius: 20px;
     }
 
     .process-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
 
@@ -883,6 +893,23 @@ img {
 
     .page-title {
         font-size: 2.8rem !important;
+    }
+
+    /* Hero CTA wrap */
+    .hero-cta-wrap {
+        padding-bottom: 5vh;
+    }
+
+    /* About page grid */
+    .about-content-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem !important;
+    }
+
+    .about-content-grid img {
+        max-height: 400px;
+        width: 100%;
+        object-fit: cover;
     }
 }
 
@@ -902,6 +929,11 @@ img {
 
     .section-title {
         font-size: 1.9rem;
+        word-break: break-word;
+    }
+
+    .section-desc {
+        font-size: 1rem;
     }
 
     /* Navbar */
@@ -911,11 +943,32 @@ img {
 
     .mobile-menu-btn {
         display: block;
+        padding: 0.5rem;
+        min-width: 44px;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Mobile nav — full-width slide in */
+    .mobile-nav {
+        width: 100%;
+        max-width: 320px;
+    }
+
+    .mobile-nav-links a {
+        font-size: 1.3rem;
+        padding: 0.4rem 0;
+        display: block;
+        min-height: 44px;
+        line-height: 44px;
     }
 
     /* Hero */
     .hero {
         min-height: 100svh;
+        background-attachment: scroll; /* Prevent parallax issues on iOS */
     }
 
     .hero-title {
@@ -923,14 +976,26 @@ img {
     }
 
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
+        padding: 0 0.5rem;
     }
 
     .hero-cta {
         flex-direction: column;
         align-items: center;
+        gap: 1rem;
         margin-top: 0 !important;
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem 2rem;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+    }
+
+    .hero-cta-wrap {
+        padding-bottom: 4vh;
     }
 
     /* Page header (About, Contact, Sourcing, Categories) */
@@ -940,6 +1005,8 @@ img {
 
     .page-title {
         font-size: 2.2rem !important;
+        word-break: break-word;
+        padding: 0 1rem;
     }
 
     /* About content grid — stack on mobile */
@@ -948,23 +1015,44 @@ img {
         gap: 2rem !important;
     }
 
+    .about-content-grid img {
+        max-height: 300px;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 4px;
+    }
+
+    /* Stats row in About */
+    .about-stats-row {
+        flex-wrap: wrap;
+        gap: 1rem !important;
+    }
+
     /* Inline two-column form grids — stack on mobile */
     .form-row-2col {
         grid-template-columns: 1fr !important;
+        gap: 0 !important;
     }
 
     /* Contact form padding */
     .contact-form {
         padding: 1.8rem !important;
+        border-radius: 4px !important;
+    }
+
+    .form-control {
+        font-size: 16px !important; /* Prevents iOS auto-zoom on input focus */
     }
 
     /* CTA section */
     .cta-title {
         font-size: 1.9rem !important;
+        word-break: break-word;
     }
 
     .cta-desc {
         font-size: 1rem;
+        padding: 0 0.5rem;
     }
 
     /* Why Us */
@@ -974,6 +1062,14 @@ img {
 
     .why-us-item {
         padding: 1rem;
+        gap: 1rem;
+    }
+
+    .why-us-image img {
+        border-radius: 12px !important;
+        max-height: 280px;
+        width: 100%;
+        object-fit: cover;
     }
 
     /* Features */
@@ -982,10 +1078,28 @@ img {
         gap: 1.5rem;
     }
 
+    .feature-card {
+        padding: 1.8rem;
+    }
+
     /* Category grid */
     .category-grid {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+
+    .card-img-wrapper {
+        aspect-ratio: 16/10; /* Wider aspect on mobile for landscape feel */
+    }
+
+    /* Process grid */
+    .process-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+    }
+
+    .process-step {
+        padding: 1.5rem;
     }
 
     /* Footer */
@@ -998,15 +1112,27 @@ img {
         max-width: 100%;
     }
 
+    .footer-links ul li a,
+    .contact-list li {
+        min-height: 36px;
+        line-height: 1.6;
+    }
+
     /* FAQ */
     .faq-question {
         font-size: 1rem;
         padding: 1.2rem 0;
     }
 
-    /* Process steps */
-    .process-step {
-        padding: 1.5rem;
+    /* Divider */
+    .divider {
+        margin: 1rem auto;
+    }
+
+    /* Social links — bigger touch targets */
+    .social-links a {
+        width: 46px;
+        height: 46px;
     }
 }
 
@@ -1029,7 +1155,7 @@ img {
     }
 
     .hero-subtitle {
-        font-size: 1rem;
+        font-size: 0.98rem;
         letter-spacing: 0;
     }
 
@@ -1063,10 +1189,15 @@ img {
 
     .brand-name {
         font-size: 0.95rem;
+        letter-spacing: 1px;
     }
 
     .why-icon {
         font-size: 1.5rem;
+    }
+
+    .why-content h3 {
+        font-size: 1.1rem;
     }
 
     .contact-form {
@@ -1077,11 +1208,118 @@ img {
         font-size: 0.95rem;
     }
 
+    .faq-container {
+        margin-top: 2rem;
+    }
+
     .footer {
         padding-top: 3rem;
     }
 
     .footer-grid {
         gap: 1.5rem;
+    }
+
+    .footer-heading {
+        font-size: 1rem;
+    }
+
+    .contact-list li {
+        font-size: 0.9rem;
+        gap: 0.75rem;
+        align-items: flex-start;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-title {
+        font-size: 1.2rem;
+    }
+
+    .feature-icon {
+        font-size: 2.5rem;
+    }
+
+    /* hp-showcase strip on very small screens */
+    .hp-showcase {
+        height: 75vh !important;
+        min-height: 480px !important;
+    }
+
+    .hp-hero-card {
+        width: 230px !important;
+    }
+
+    .hp-strip-item {
+        width: 130px !important;
+        height: 150px !important;
+    }
+
+    /* cat-showcase strip on very small screens */
+    .cat-showcase {
+        height: 75vh !important;
+        min-height: 480px !important;
+    }
+
+    .cat-hero-card {
+        width: 230px !important;
+    }
+
+    .cat-strip-item {
+        width: 130px !important;
+        height: 150px !important;
+    }
+}
+
+/* ── Touch / Pointer improvements (all sizes) ── */
+@media (hover: none) and (pointer: coarse) {
+    /* On touch devices, show card overlays by default since there's no hover */
+    .card-overlay {
+        opacity: 0.6;
+    }
+
+    .view-btn {
+        transform: translateY(0);
+    }
+
+    .hp-hero-card:hover .hp-card-overlay,
+    .cat-hero-card:hover .cat-card-overlay {
+        opacity: 1;
+    }
+
+    .hp-hero-card:hover .hp-view-label,
+    .cat-hero-card:hover .cat-view-label {
+        transform: translateY(0);
+    }
+
+    /* Disable translateX hover that feels odd on touch */
+    .why-us-item:hover {
+        transform: none;
+    }
+
+    .feature-card:hover {
+        transform: none;
+    }
+}
+
+/* ── Print / A11y ── */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in-up {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    .hp-strip-track,
+    .cat-strip-track {
+        animation: none !important;
+    }
+
+    .card-img,
+    .hp-card-img-wrap img,
+    .cat-card-img-wrap img {
+        transition: none !important;
     }
 }
