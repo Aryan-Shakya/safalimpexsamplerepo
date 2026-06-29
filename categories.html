@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Our Categories - Safal Impex</title>
     <!-- Favicon -->
     <link rel="icon" href="public/logo (1).jpeg" type="image/jpeg">
@@ -328,6 +328,13 @@
         }
 
         /* Responsive */
+        @media (max-width: 992px) {
+            .cat-showcase {
+                height: 85vh;
+                background-attachment: scroll;
+            }
+        }
+
         @media (max-width: 768px) {
             .cat-hero-card {
                 width: 260px;
@@ -345,9 +352,43 @@
 
             .cat-showcase {
                 height: 80vh;
+                background-attachment: scroll;
+                background-position: center top;
+            }
+
+            /* Touch: always show the overlay label */
+            @media (hover: none) {
+                .cat-card-overlay {
+                    opacity: 0.8;
+                }
+                .cat-view-label {
+                    transform: translateY(0);
+                }
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cat-hero-card {
+                width: 230px;
+            }
+
+            .cat-strip-item {
+                width: 130px;
+                height: 150px;
+            }
+
+            .cat-mask-left,
+            .cat-mask-right {
+                width: calc(50% - 120px);
+            }
+
+            .cat-showcase {
+                height: 75vh;
+                min-height: 480px;
             }
         }
     </style>
+
 
     <script>
         /* ── Build infinite strip with mixed image sequence ── */
